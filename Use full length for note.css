@@ -1,0 +1,9 @@
+.maxWidth.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.dashboard .markdown-preview-section {
+  width: 100% !important;
+  max-width: 100% !important;
+}
