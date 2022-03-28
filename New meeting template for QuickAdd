@@ -1,0 +1,26 @@
+---
+tags: meeting, future
+---
+```button
+name Finish Meeting
+type command
+action QuickAdd: FinishMeeting
+color yellow
+remove true
+```
+^button-y9qv
+#### Metadata
+Project:: [[{{VALUE:PROJECT}}]]
+Date:: [[{{VALUE:DATE}}]]
+
+# Preparation
+- [ ] Prepare for meeting 📅 {{VALUE:TODODATE}}
+
+# Agenda & files
+- 
+
+# Attendees
+- 
+
+# Notes
+- 
