@@ -1,0 +1,86 @@
+/* Replace backlink with icon */
+
+.dashboard .tasks-backlink > .internal-link {
+  font-size: 0;
+}
+
+.dashboard .tasks-backlink > .internal-link:after {
+  content: " 📑";
+  font-size: 14px;
+}
+
+.dashboard .tasks-list-text > a {
+  pointer-events: none;
+  cursor: default;
+  color: inherit !important; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+  font-weight: inherit;
+}
+
+.dashboard .tasks-list-text .external-link {
+  background-image: none;
+  padding-right: 0px;
+}
+
+.dashboard .multiColumnParent {
+  background: rgb(224, 211, 211);
+}
+
+/* Add line between tasks */
+
+.dashboard .plugin-tasks-list-item {
+  padding: 0.1em 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* .dashboard {
+  --line-width-adaptive: none
+} */
+
+/* Below taken from here: https://forum.obsidian.md/t/dashboard-a-simple-organization-and-navigation-method-for-obsidian-vaults/33197/6 and modified */
+
+.dashboard {
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  padding-top: 20px !important;
+}
+
+.dashboard .markdown-preview-section {
+  max-width: 100%;
+}
+
+/* Title at top of the document */
+.dashboard .markdown-preview-section .title {
+  top: 60px;
+  position: absolute;
+  font-size: 26pt !important;
+  font-weight: bolder;
+  letter-spacing: 8px;
+}
+
+.dashboard h1 {
+  border-bottom-style: dotted !important;
+  border-width: 1px !important;
+  padding-bottom: 3px !important;
+}
+
+.dashboard div > ul:not(.plugin-tasks-query-result):not(.list-view-ul) {
+  list-style: none;
+  display: flex;
+  column-gap: 50px;
+  row-gap: 30px;
+  flex-flow: row;
+  /* flex-flow: row wrap; */
+}
+
+.dashboard .admonition-content li > h2 {
+  white-space: nowrap;
+}
+
+.admonition-content-holder > .admonition-content {
+  margin: 0;
+}
+
+.admonition-content-holder > .admonition-content ul {
+  padding-inline-start: 25px;
+}
