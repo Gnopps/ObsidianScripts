@@ -1,0 +1,34 @@
+---
+tags: case, 
+logo: file:///C:/Users/user/Onedrive/Work%20notes%20-%20Obsidian/Logos/<% tp.file.title.replaceAll(" ", "%20") %>.png
+---
+#### General
+- AE:: 
+- CRM
+- Products:: 
+
+#### Info
+- ERPs:: 
+
+#### Todos
+```tasks
+not done
+path includes <% tp.file.title %>
+hide task count
+hide start date
+```
+
+#### Activities
+- [[<% tp.date.now("YYYY-MM-DD") %>]]
+	- [ ] Add to [CRM](https://crm4.dynamics.com/main.aspx?appid=cd044pe=entitylist&etn=opportunity&viewid-000d3ab8f88e&viewType=4230) ⏳ <% tp.date.now("YYYY-MM-DD", 14) %>
+	- [ ] Add to [Teams](https://teams.microsoft.com/l/entity/26bce8c/_djb2_msteams_prefi60545?context=%7B%22subEntityId%22%3Anull%2C%22channelId%22%3A%221eb%40thread.skype%22%7D&groupId=213b3443-90f0-4864-bba6ee65c97) ⏳ <% tp.date.now("YYYY-MM-DD", 14) %>
+	- [ ] Add [logo](https://www.google.com/search?q=logo+fileformat:png&tbm=isch) ⏳ <% tp.date.now("YYYY-MM-DD", 14) %>
+
+#### Meetings
+```dataviewjs
+let meetings = dv.pages(`"${dv.current().file.folder}" and #meeting`)
+meetings = meetings.sort(k => k.date, 'desc')
+for (let meeting of meetings){
+dv.el("p", "![[" + meeting.file.name + "]]");
+}
+```
