@@ -89,7 +89,7 @@ color: 3, 135, 36
 	```tasks
 	not done
 	scheduled before in 90 days
-	scheduled after in 6 days
+	scheduled after in 1 days
 	hide edit button
 	hide start date
 	limit 5
