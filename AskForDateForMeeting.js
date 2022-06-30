@@ -55,6 +55,6 @@ module.exports = async (params) => {
 
   await app.fileManager.renameFile(
     activeFile,
-    "🏙️ Customers/" + meetingProject.basename + "/" + activeFile.name
+    "Customers/" + meetingProject.basename + "/" + activeFile.name
   );
 };

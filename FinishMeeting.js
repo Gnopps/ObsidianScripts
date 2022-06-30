@@ -29,6 +29,6 @@ module.exports = async function moveFilesWithTag(params) {
 
   await app.fileManager.renameFile(
     activeFile,
-    "🏙️ Customers/" + pureCustomerName + "/" + activeFile.name
+    "Customers/" + pureCustomerName + "/" + activeFile.name
   );
 };

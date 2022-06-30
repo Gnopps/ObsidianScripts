@@ -7,14 +7,14 @@ module.exports = async function setupNewCustomer(params) {
   // Create folders
   const fileName = activeFile.basename;
 
-  await app.vault.createFolder("🏙️ Customers/" + fileName);
-  await app.vault.createFolder("🏙️ Customers/" + fileName + "/Files");
+  await app.vault.createFolder("Customers/" + fileName);
+  await app.vault.createFolder("Customers/" + fileName + "/Files");
 
   // Move note
 
   await app.fileManager.renameFile(
     activeFile,
-    "🏙️ Customers/" + fileName + "/" + activeFile.name
+    "Customers/" + fileName + "/" + activeFile.name
   );
 
   // Search for logo

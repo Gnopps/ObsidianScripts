@@ -1,6 +1,7 @@
 ---
 cssclass: maxWidth, dashboard
 ---
+
 ````ad-dashb
 title: Today
 color: 245, 229, 12
@@ -53,22 +54,25 @@ icon: briefcase
 	hide edit button
 	limit 5
 	```
-- ## 🍅 Pomodoros
+- ## 🍅 / ☑️ Completed
 	```tracker
-	searchType: text
-	searchTarget: 🍅
+	searchType: text, dvField, text
+	searchTarget: 🍅, ignore, ☑️
+	datasetName: pomodoros, reference, tasks
 	folder: /
 	startDate: -6d
 	endDate: 0d
-	accum: true
-	penalty: 0
+	accum: true, false, true
+	penalty: 0, 10, 0
 	fitPanelWidth: true
 	line:
 		showLine: true
 		yAxisLabel: Nbr
 		xAxisLabel: Date
+		showPoint: false, false, false
 		yMin: 0
 		fillGap: true
+		lineColor: "red, #A9D4C0, blue"
 	```
 ````
 
@@ -83,7 +87,6 @@ color: 3, 135, 36
 	due after 1999-01-01
 	hide edit button
 	hide start date
-	limit 5
 	```
 - ## ⬜ Other tasks
 	```tasks
@@ -100,9 +103,28 @@ color: 3, 135, 36
 title: Recent cases
 color: 0, 169, 206
 icon: file-contract
-```dataview
-table without id ("![](" + logo + ")") as "", ("[[" + file.name + "]]") as Name, Products, AE, file.mday AS "Last edit"
-WHERE file.mday >= date(today) - dur(14 day) AND file.folder != "Templates" AND AE != null
-SORT file.mtime DESCENDING
+```dataviewjs
+function checkDate(item) {
+	if (moment(new Date(item.lastDate)).isAfter(moment().subtract(2, 'weeks'))){
+		return true
+	}
+	return false
+}
+
+let customers = dv.pages('"Customers" and #case')
+for (let customer of customers){
+	customer.lastDate = customer.file.mday
+	for (let inlink of customer.file.inlinks){
+		if(dv.page(inlink).file.tags.indexOf("#meeting") > -1 && dv.page(inlink).file.folder == customer.file.folder){
+			if (customer.lastDate < dv.page(inlink).file.mday){
+				customer.lastDate = dv.page(inlink).file.mday
+			}
+		}
+	}
+}
+dv.table(["Logo","Name", "Products","AE", "Last activity"], customers
+.filter(t => checkDate(t))
+.sort(k => k.lastDate, "desc")
+.map(b => ["![](" + b.logo + ")", "[["+b.file.name+"]]", b.products,b.ae, b.lastDate]))
 ```
 ````
